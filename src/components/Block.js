@@ -1,6 +1,6 @@
 
  export class Block{
-    constructor(ctx, x, y, size, color){
+    constructor(ctx, x, y, size=15, color){
         this.ctx = ctx;
         this.x = x; //horizontal position
         this.y = y; //vertical position

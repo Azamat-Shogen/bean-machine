@@ -18,11 +18,21 @@ class Ball {
         this.ctx.fill();
     }
 
+    gameOver(){
+        this.speedY = 0;
+        this.speedX = 0;
+    }
 
-    update(width, height){
+
+    update(width, height, balls){
         if(this.y >= height-this.size){
             this.speedY = 0;
             this.speedX = 0;
+        }
+        for(let i = 0; i < balls.length; i++){
+            if (this.y === balls[i].y - this.size * 2 && this.x === balls[i].x){
+                this.speedY = 0;
+            }
         }
         this.y += this.speedY;
         this.x += this.speedX;

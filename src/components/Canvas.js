@@ -13,9 +13,6 @@ const Canvas = ({width, height}) => {
     let context = null
     let animationId = null
     const arr = genArray(7, 7);
-    // let width = null
-    // let height = null
-
 
     const loop = () => {
       context.fillStyle = "#fafbfc";
@@ -23,7 +20,7 @@ const Canvas = ({width, height}) => {
 
       //TODO: DRAW A GRID
       const grid = new Grid(context, width, height)
-      grid.draw();
+      // grid.draw();
 
       //TODO: DISPLAY BLOCKS
         let cellSize = 44;
@@ -45,7 +42,7 @@ const Canvas = ({width, height}) => {
         }
 
       //TODO: DROP BALLS LOGIC
-      while (balls.length < 5){
+      while (balls.length < 31){
           const ballSize = 20
           const x = width / 2;
           const y = ballSize;
@@ -60,35 +57,23 @@ const Canvas = ({width, height}) => {
 
         let current = balls[0]
         current.draw()
-        current.update(width, height)
-        // current.turn(blocks)
+        current.update(width, height, balls)
+
          for(let i = 0; i < balls.length; i++){
              if (current.speedY === 0) {
-                 current = balls[i]
-                 current.draw();
-                 current.update(width, height)
-             }
+                 if(current.y <= height - (current.size * 12)){
+                     current.gameOver();
+                     break;
+                  }
+                  else{
+                      current = balls[i]
+                      current.draw();
+                      current.update(width, height, balls)
+                  }
+              }
          }
 
-        current.turn(blocks)
-
-      //   let current = balls[0]
-      //   current.draw();
-      //   current.update(width, height)
-      //
-      // for(let i = 0; i < balls.length; i++) {
-      //     if (current.speedY === 0) {
-      //         current = balls[i]
-      //         current.draw();
-      //         current.update(width, height)
-      //     }
-      //
-      //     current.turn(blocks)
-      //
-      // }
-
-
-
+       current.turn(blocks)
        animationId = requestAnimationFrame(loop)
     }
 
@@ -97,24 +82,16 @@ const Canvas = ({width, height}) => {
       return Math.floor(Math.random() * (max - min)) + min;
     }
 
-    function direction(){
-        const rand = Math.floor(Math.random() * 2)
-        if(rand) return "right";
-        return "left";
-    }
-
 
     useEffect( () => {
         canvas = canvasRef.current
         context = canvas.getContext('2d')
         loop()
 
-        
-
         return () => {
          cancelAnimationFrame(animationId)
         }
-    }, []) // may not need loop
+    }, [])
 
     return (
         <canvas width={width} height={height} ref={canvasRef}/>
@@ -122,34 +99,3 @@ const Canvas = ({width, height}) => {
 }
 
 export default Canvas
-
-
-
-//
-// for(let i = 0; i < balls.length; i++) {
-//     let current = balls[i]
-//     if (current.speedY === 0) {
-//         current = balls[i]
-//         current.draw();
-//         current.update(width, height)
-//     }
-// }
-//
-//     // const dir = direction();
-//
-//     for(let j = 0; j < blocks.length; j++){
-//         if(current.y >= blocks[j].y - current.size * 2){
-//             current.speedX = 2
-//             current.speedY = 1
-//
-//
-//             if(current.x > blocks[j].x + current.size * 2 ) {
-//                 current.speedX = 0;
-//             }
-//
-//             if(current.x < blocks[j].x - current.size * 2 ) {
-//                 current.speedX = 0;
-//             }
-//
-//         }
-//     }
