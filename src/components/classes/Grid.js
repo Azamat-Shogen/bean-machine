@@ -11,10 +11,9 @@ class Grid{
   draw(){
     let x = 0;
     let y = 0;
-
     let xy = 10;
     this.ctx.lineWidth = 0.2;
-    this.ctx.strokeStyle = "#dce0dd"
+    this.ctx.strokeStyle = "#cfdede"
     while(y < this.height){
        y = y + this.dy;
        this.ctx.moveTo(x, y);

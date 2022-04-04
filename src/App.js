@@ -1,20 +1,21 @@
 import './App.css';
 import Canvas from './components/Canvas';
+import {useState} from "react";
+import Start from "./components/Start";
 
 function App() {
 
+ const [finished, setFinished] = useState(false);
+ const [started, setStarted] = useState(false)
 
-//   const draw = (ctx, frameCount) => {
-//     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-//     ctx.fillStyle = '#000000'
-//     ctx.beginPath()
-//     ctx.arc(50, 100, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
-//     ctx.fill()
-// }
+   console.log( "finished : ", finished);
 
   return (
     <div className="App">
-      <Canvas width={440} height={680} />
+        {finished ? <Start finished={finished} setFinished={setFinished}/> :
+            <Canvas width={440} height={680}
+                    finished={finished} setFinished={setFinished}/>
+        }
     </div>
   );
 }

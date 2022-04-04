@@ -1,10 +1,11 @@
 import { useRef, useEffect } from "react";
-import Ball from "./Ball";
-import Grid  from "./Grid";
-import {Block, genArray} from "./Block"
+import Ball from "./classes/Ball";
+import Grid  from "./classes/Grid";
+import {Block, genArray} from "./classes/Block"
+import Column from "./classes/Column";
 
 
-const Canvas = ({width, height}) => {
+const Canvas = ({width, height,  setFinished}) => {
 
     const canvasRef = useRef(null);
     let balls = [];
@@ -15,12 +16,17 @@ const Canvas = ({width, height}) => {
     const arr = genArray(7, 7);
 
     const loop = () => {
-      context.fillStyle = "#fafbfc";
+      context.fillStyle = "rgb(212,236,236)";
       context.fillRect(0, 0, width, height)
 
       //TODO: DRAW A GRID
-      const grid = new Grid(context, width, height)
-      // grid.draw();
+      //const grid = new Grid(context, width, height)
+      //grid.draw();
+
+      //TODO: DRAW COLUMNS
+        const cols = new Column(context, width, height);
+        cols.draw();
+
 
       //TODO: DISPLAY BLOCKS
         let cellSize = 44;
@@ -51,7 +57,8 @@ const Canvas = ({width, height}) => {
           const red = random(0, 255);
           const green = random(0, 255);
           const blue = random(0, 255);
-          const ball = new Ball(context, x, y, speedX, speedY, "rgb(" + red + "," + green + "," + blue + ")", ballSize);
+          const ball = new Ball(context, x, y, speedX, speedY,
+              "rgb(" + red + "," + green + "," + blue + ")", ballSize);
           balls.push(ball)
       }
 
@@ -63,6 +70,7 @@ const Canvas = ({width, height}) => {
              if (current.speedY === 0) {
                  if(current.y <= height - (current.size * 12)){
                      current.gameOver();
+                     setFinished(false)
                      break;
                   }
                   else{
