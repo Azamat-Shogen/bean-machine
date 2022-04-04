@@ -5,9 +5,38 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f8ce;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.start{
+
+}
+.start h1{
+  color: #1d78d9;
+  /*font-family: "Times New Roman", Times, serif;*/
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.start button {
+  position: relative;
+  background-color: #1d78d9;
+  min-width: 100px;
+  border: none;
+  outline: none;
+  padding: 0.8em;
+  font-weight: bold;
+  font-size: 1em;
+  color: snow;
+  border-radius: 5px;
+  transition: 0.5s ease-in;
+}
+.start button:hover{
+  cursor: pointer;
+  transform: rotate(20deg);
+}
+
