@@ -1,12 +1,16 @@
 
 
-const Start = ({finished, setFinished}) => {
+const Start = ({started, setStarted, buttonText, setButtonText}) => {
 
+     const handleClick = () => {
+          setStarted(true)
+          setButtonText("Start")
+     }
 
     return (
         <div className="start">
             <h1>Bean Machine</h1>
-            <button onClick={() => setFinished(false)}>Start</button>
+            <button onClick={handleClick}>{buttonText}</button>
         </div>
     )
 }
