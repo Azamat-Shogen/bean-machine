@@ -13,10 +13,9 @@ function App() {
   return (
     <div className="App">
         {
-           started && buttonText === "Start" ? <Canvas width={440} height={680}
-                             setStarted={setStarted}
-                             setButtonText={setButtonText}
-                             started={started}/> :
+           started && buttonText === "Start" ?
+               <Canvas width={440} height={680}
+                       setButtonText={setButtonText}/> :
 
                <Start started={started}
                              setStarted={setStarted}

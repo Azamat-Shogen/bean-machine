@@ -5,7 +5,7 @@ import {Block, genArray} from "./classes/Block"
 import Column from "./classes/Column";
 
 
-const Canvas = ({width, height, setStarted, setButtonText}) => {
+const Canvas = ({width, height, setButtonText}) => {
 
     const canvasRef = useRef(null);
     let balls = [];
@@ -70,7 +70,6 @@ const Canvas = ({width, height, setStarted, setButtonText}) => {
              if (current.speedY === 0) {
                  if(current.y <= height - (current.size * 12)){
                      current.gameOver();
-                     // setStarted(false)
                      setButtonText("Restart")
                      break;
                   }
