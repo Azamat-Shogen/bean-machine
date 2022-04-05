@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import Ball from "./classes/Ball";
-import Grid  from "./classes/Grid";
+// import Grid  from "./classes/Grid";
 import {Block, genArray} from "./classes/Block"
 import Column from "./classes/Column";
 
@@ -20,8 +20,8 @@ const Canvas = ({width, height, setButtonText}) => {
       context.fillRect(0, 0, width, height)
 
       //TODO: DRAW A GRID
-      //const grid = new Grid(context, width, height)
-      //grid.draw();
+      // const grid = new Grid(context, width, height)
+      // grid.draw();
 
       //TODO: DRAW COLUMNS
         const cols = new Column(context, width, height);
@@ -38,7 +38,7 @@ const Canvas = ({width, height, setButtonText}) => {
 
                 if(arr[i][j] === "*"){
                     tempX += j * cellSize
-                    const block = new Block(context, tempX, posY, 15, "#171c21");
+                    const block = new Block(context, tempX, posY, 10, "#171c21");
                     block.draw()
                     blocks.push(block);
                     tempX = posX

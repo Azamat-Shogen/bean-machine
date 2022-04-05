@@ -1,5 +1,3 @@
-
-
 class Ball {
     constructor(ctx, x, y, speedX, speedY, color, size=20){
         this.ctx = ctx;
@@ -23,7 +21,6 @@ class Ball {
         this.speedX = 0;
     }
 
-
     update(width, height, balls){
         if(this.y >= height-this.size){
             this.speedY = 0;
@@ -36,7 +33,6 @@ class Ball {
         }
         this.y += this.speedY;
         this.x += this.speedX;
-
     }
 
     turn(blocks){
@@ -55,7 +51,7 @@ class Ball {
                     if(this.x === blockX && this.y === blockY - this.size * 2){
                         this.speedX = -2;
                     }
-                    if(this.x === blockX - blockSize * 2 - 14){
+                    if(this.x === blockX - blockSize * 4 - 4){
                         this.speedX = 0;
                     }
                 }
@@ -64,7 +60,7 @@ class Ball {
                     if(this.x === blockX && this.y === blockY - this.size * 2){
                         this.speedX = 2;
                     }
-                    if(this.x === blockX + blockSize * 2 + 14){
+                    if(this.x === blockX + blockSize * 4 + 4){
                         this.speedX = 0;
                     }
                 }
@@ -87,4 +83,3 @@ class Ball {
 }
 
 export default Ball;
-
