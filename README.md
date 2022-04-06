@@ -1,6 +1,6 @@
 # Bean Machine
 
-Demo [game](https://github.com/facebook/create-react-app).
+Demo 🚀 [game](https://bean-machine.netlify.app/).
 
 ## Available Scripts
 
