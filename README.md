@@ -1,5 +1,8 @@
 # Bean Machine
 
+### Tools used:
+React, Javascript, Canvas
+
 Demo 🚀 [game](https://bean-machine.netlify.app/).
 
 ![bean](https://user-images.githubusercontent.com/68517175/162022086-a10675ac-6012-4dec-9c03-0316b9a5cc85.png)
