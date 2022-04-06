@@ -1,6 +1,6 @@
 # Bean Machine
 
-Demo [Create React App](https://github.com/facebook/create-react-app).
+Demo [game](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
